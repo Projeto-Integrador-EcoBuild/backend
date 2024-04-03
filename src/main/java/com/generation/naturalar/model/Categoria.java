@@ -6,6 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 @Entity
 @Table(name = "tb_categoria")
@@ -16,6 +17,7 @@ public class Categoria {
 	private Long id;
 
 	@NotBlank(message = "Nome é obrigatório")
+	@Size(min = 5, max = 50, message = "O atributo nome deve conter no mínimo 05 e no máximo 50 caracteres")
 	private String nome;
 
 	private String descricao;
