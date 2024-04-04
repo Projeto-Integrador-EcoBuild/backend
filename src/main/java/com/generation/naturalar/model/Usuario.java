@@ -30,7 +30,7 @@ public class Usuario {
 	private String nome;
 	
 	@NotBlank(message = "É necessario inserir a senha")
-	@Size(min = 7, max = 16, message = "A senha precisa ter no minimo 7 caracteres e max 16")
+	@Size(min = 8, message = "A senha precisa ter no minimo 8 caracteres")
 	private String senha;
 	
 	@Email(message = "O E-mail deve estar no formato valido")
@@ -40,8 +40,7 @@ public class Usuario {
 	
 	private String foto;
 	
-	@NotBlank(message = "É necessario inserir o tipo de acesso")
-	@Size(min = 6, max = 14)
+	@NotBlank(message = "É necessario inserir o tipo de acesso")	
 	private String tipo;
 	//usuario ou administrador
 
