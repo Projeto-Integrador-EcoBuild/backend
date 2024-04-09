@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.generation.naturalar.model.Usuario;
+
 public class UserDetailsImpl implements UserDetails {
 	
 	private static final long serialVersionUID = 1L;
@@ -14,8 +16,8 @@ public class UserDetailsImpl implements UserDetails {
 	private String password;
 	private List<GrantedAuthority> authorities;
 
-	public  UserDetailsImpl(com.generation.naturalar.model.Usuario user) {
-		this.userName = user.getNome();
+	public  UserDetailsImpl(Usuario user) {
+		this.userName = user.getEmail();
 		this.password = user.getSenha();
 	}
 	public  UserDetailsImpl() {}
