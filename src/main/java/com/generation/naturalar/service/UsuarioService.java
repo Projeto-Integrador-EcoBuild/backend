@@ -69,13 +69,12 @@ public class UsuarioService {
 			Optional<Usuario> usuario = usuarioRepository.findByEmail(usuarioLogin.get().getEmail());
 
 			if (usuario.isPresent()) {
-
-			   usuarioLogin.get().setId(usuario.get().getId());
-                usuarioLogin.get().setNome(usuario.get().getNome());
-                usuarioLogin.get().setFoto(usuario.get().getFoto());
-                usuarioLogin.get().setToken(gerarToken(usuarioLogin.get().getEmail()));
-                usuarioLogin.get().setSenha("");
-				
+				usuarioLogin.get().setId(usuario.get().getId());
+                		usuarioLogin.get().setNome(usuario.get().getNome());
+                		usuarioLogin.get().setFoto(usuario.get().getFoto());
+				usuarioLogin.get().setTipo(usuario.get().getTipo());
+                		usuarioLogin.get().setToken(gerarToken(usuarioLogin.get().getEmail()));
+                		usuarioLogin.get().setSenha("");
 			   return usuarioLogin;
 			
 			}
