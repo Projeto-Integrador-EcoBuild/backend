@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.generation.naturalar.model.Produto;
@@ -26,6 +27,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @RequestMapping("/produtos")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class ProdutoController {
 	@Autowired
 	private CategoriaRepository categoriaRepository;
