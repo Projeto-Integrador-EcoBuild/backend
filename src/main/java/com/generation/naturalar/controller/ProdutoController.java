@@ -47,6 +47,28 @@ public class ProdutoController {
 	}
 	
 	
+	@GetMapping("/preco/asc")
+	public ResponseEntity<List<Produto>> getByPriceAsc(){
+		return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.findAllByOrderByPrecoAsc());
+	}
+	
+	  @GetMapping("/preco/desc")
+    public ResponseEntity<List<Produto>> getAllByPriceDesc() {
+        List<Produto> produtos = produtoRepository.findAllByOrderByPrecoDesc();
+        return ResponseEntity.status(HttpStatus.OK).body(produtos);
+    }
+	@GetMapping("/nome/{nome}")
+	public ResponseEntity<List<Produto>> getByName(@PathVariable String nome ){
+		 String nomePattern = "%" + nome + "%";
+		return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.findAllByNomeLike(nomePattern));
+	}
+	
+	@GetMapping("/categoria/{id}")
+	public ResponseEntity<List<Produto>> getByCategoria(@PathVariable Long id){
+		return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.findAllByCategoria_id(id));
+	}
+ 	
+	
 	@GetMapping("/{id}")
 	public ResponseEntity<Produto> getById(@PathVariable Long id) {
 		return produtoRepository.findById(id).map(resposta -> ResponseEntity.ok(resposta))
