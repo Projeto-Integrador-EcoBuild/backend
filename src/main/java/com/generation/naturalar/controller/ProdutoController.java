@@ -46,17 +46,7 @@ public class ProdutoController {
 		return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.findAllByPrecoLessThanEqual(preco));
 	}
 	
-	
-	@GetMapping("/preco/asc")
-	public ResponseEntity<List<Produto>> getByPriceAsc(){
-		return ResponseEntity.status(HttpStatus.OK).body(produtoRepository.findAllByOrderByPrecoAsc());
-	}
-	
-	  @GetMapping("/preco/desc")
-    public ResponseEntity<List<Produto>> getAllByPriceDesc() {
-        List<Produto> produtos = produtoRepository.findAllByOrderByPrecoDesc();
-        return ResponseEntity.status(HttpStatus.OK).body(produtos);
-    }
+    
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<List<Produto>> getByName(@PathVariable String nome ){
 		 String nomePattern = "%" + nome + "%";
