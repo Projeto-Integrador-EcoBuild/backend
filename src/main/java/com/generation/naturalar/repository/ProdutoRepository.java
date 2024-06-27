@@ -16,7 +16,5 @@ public interface ProdutoRepository extends JpaRepository<Produto, Long> {
 	
 	public List<Produto> findAllByCategoria_id(@Param("categoria_id") Long id);
 	
-	public List<Produto> findAllByOrderByPrecoDesc();
 	
-	public List<Produto> findAllByOrderByPrecoAsc();
 }
